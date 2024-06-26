@@ -1,4 +1,4 @@
-import { FlatList  } from 'react-native'
+import { FlatList } from 'react-native'
 
 import CATEGORIES from '../data/dummy-data'
 import CategoryGridTitle from '../components/CategoryGridTitle'
@@ -14,12 +14,12 @@ const CategoriesScreen = () => {
 
 
 
-            <FlatList
-                data={CATEGORIES}
-                keyExtractor={(item) => item.id}
-                renderItem={renderCategoryItem}
-                numColumns={2}
-            />
+        <FlatList
+            data={CATEGORIES}
+            keyExtractor={(item) => item.id}
+            renderItem={renderCategoryItem}
+            numColumns={2}
+        />
 
 
     )
