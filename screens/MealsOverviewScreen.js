@@ -4,16 +4,26 @@ import MealItem from '../components/MealItem';
 import { MEALS } from '../data/dummy-data';
 
 
-const MealsOverviewScreen = ({route}) => {
+const MealsOverviewScreen = ({ route }) => {
 
-  const categoryId = route.params.categoryId;
+    const categoryId = route.params.categoryId;
 
-  const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(categoryId) >= 0);
+    const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(categoryId) >= 0);
 
     const renderMealItem = (itemData) => {
-        return <MealItem title={itemData.item.title} />
-        
-    }   
+
+        const item = itemData.item
+        const mealItemProps = {
+            title: item.title,
+            imageUrl: item.imageUrl,
+            duration: item.duration,
+            complexity: item.complexity,
+            affordability: item.affordability
+
+        }
+        return <MealItem {...mealItemProps} />
+
+    }
     return (
         <View styles={styles.container} >
             <FlatList data={displayedMeals} keyExtractor={(meal) => meal.id} renderItem={renderMealItem}></FlatList>
