@@ -1,19 +1,31 @@
-import { View, StyleSheet, FlatList, Text } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { useLayoutEffect } from 'react';
 import MealItem from '../components/MealItem';
 
 import { MEALS } from '../data/dummy-data';
+import  CATEGORIES  from '../data/dummy-data';
 
 
-const MealsOverviewScreen = ({ route }) => {
+const MealsOverviewScreen = ({ route, navigation }) => {
 
     const categoryId = route.params.categoryId;
 
     const displayedMeals = MEALS.filter((meal) => meal.categoryIds.indexOf(categoryId) >= 0);
 
+
+    useLayoutEffect(() => {
+        const categoryTitle = CATEGORIES.find((category) => category.id === categoryId).title
+        navigation.setOptions({     
+            title: categoryTitle
+        })
+    }, [categoryId, navigation])
+
+
     const renderMealItem = (itemData) => {
 
         const item = itemData.item
         const mealItemProps = {
+            id: item.id,
             title: item.title,
             imageUrl: item.imageUrl,
             duration: item.duration,
@@ -26,6 +38,7 @@ const MealsOverviewScreen = ({ route }) => {
     }
     return (
         <View styles={styles.container} >
+   
             <FlatList data={displayedMeals} keyExtractor={(meal) => meal.id} renderItem={renderMealItem}></FlatList>
         </View>
     )
