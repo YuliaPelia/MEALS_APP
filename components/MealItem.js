@@ -2,6 +2,7 @@ import { View, Pressable, Text, Image, StyleSheet, Platform } from "react-native
 
 import { useNavigation } from "@react-navigation/native"
 
+import MealDetails from "./MealDetails"
 const MealItem = ({ id, title, imageUrl, duration, complexety, affordability }) => {
 
     const navigation = useNavigation();
@@ -21,11 +22,7 @@ const MealItem = ({ id, title, imageUrl, duration, complexety, affordability }) 
                             source={{ uri: imageUrl }} />
                         <Text style={styles.title}>{title}</Text>
                     </View>
-                    <View style={styles.details}>
-                        <Text style={styles.detailItem}>{duration}m</Text>
-                        <Text style={styles.detailItem}>{complexety}</Text>
-                        <Text style={styles.detailItem}>{affordability}</Text>
-                    </View>
+                    <MealDetails duration={duration} complexety={complexety} affordability={affordability} />
                 </View>
             </Pressable>
 
@@ -62,17 +59,7 @@ const styles = StyleSheet.create({
         margin: 8
 
     },
-    details: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 8
-    },
 
-    detailItem: {
-        marginHorizontal: 4,
-        fontSize: 12
-    },
     buttnPressed: {
         opacity: 0.5
     },
