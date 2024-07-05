@@ -12,13 +12,16 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="light"   />
 
       {/* <NavigationContainer> */}
       <Stack.Navigator screenOptions={{
         headerStyle: {
+
           backgroundColor: "#f4511e",
         },
+        headerTitleAlign: "center",
+
         headerTintColor: "#fff",
         contentStyle: { backgroundColor: '#f4511e' },
         headerTitleStyle: {

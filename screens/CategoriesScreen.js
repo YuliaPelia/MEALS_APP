@@ -3,10 +3,6 @@ import { FlatList } from 'react-native'
 import CATEGORIES from '../data/dummy-data'
 import CategoryGridTitle from '../components/CategoryGridTitle'
 
-
-
-
-
 const CategoriesScreen = ({navigation}) => {
 
     const renderCategoryItem = (itemData) => {
@@ -18,10 +14,7 @@ const CategoriesScreen = ({navigation}) => {
         return <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} onPress={pressHandler}        />
   
     }
-
     return (
-
-
 
         <FlatList
             data={CATEGORIES}
@@ -30,10 +23,7 @@ const CategoriesScreen = ({navigation}) => {
             numColumns={2}
       
         />
-
-
     )
 }
-
 
 export default CategoriesScreen;

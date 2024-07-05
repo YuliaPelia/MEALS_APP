@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native'
 
-const MealDetails = ({ duration, complexety, affordability }) => {
+const MealDetails = ({ duration, complexety, affordability, style, textStyle }) => {
     return (
-        <View style={styles.details}>
-            <Text style={styles.detailItem}>{duration}m</Text>
-            <Text style={styles.detailItem}>{complexety}</Text>
-            <Text style={styles.detailItem}>{affordability}</Text>
+        <View style={[styles.details, style]}>
+            <Text style={[styles.detailItem, textStyle]}>{duration}m</Text>
+            <Text style={[styles.detailItem, textStyle]}>{complexety}</Text>
+            <Text style={[styles.detailItem, textStyle]}>{affordability}</Text>
         </View>
     )
 }
